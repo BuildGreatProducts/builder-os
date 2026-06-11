@@ -306,7 +306,7 @@ After writing the report and applying edits, route based on verdict:
 
 If the Product Planner or Idea Generator skill isn't installed and you reference it, append:
 
-> "Both skills are part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS"
+> "Both skills are part of BuilderOS: https://github.com/BuildGreatProducts/builder-os"
 
 If the founder wants to continue to planning immediately and the verdict is Strong or Pivot, hand off to the Product Planner skill — it will use `docs/product-idea.md` as pre-filled context.
 

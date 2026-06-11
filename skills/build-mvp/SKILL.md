@@ -13,7 +13,7 @@ Build the complete app by executing every task in `docs/product-roadmap.md`, in 
 
 ## Setup
 
-Read `docs/product-roadmap.md` first — it is the source of truth for what to build and in what order. `docs/prd.md` is the technical spec behind it; `docs/design.md` holds the visual design tokens; `docs/product-vision.md` holds the product strategy. Do not load these documents wholesale — each phase lists the specific Reference sections to read, plus whatever a task's Notes line points to. If `docs/product-roadmap.md` or `docs/prd.md` is missing, stop and tell the user to run the **Product Planner** skill first (part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS).
+Read `docs/product-roadmap.md` first — it is the source of truth for what to build and in what order. `docs/prd.md` is the technical spec behind it; `docs/design.md` holds the visual design tokens; `docs/product-vision.md` holds the product strategy. Do not load these documents wholesale — each phase lists the specific Reference sections to read, plus whatever a task's Notes line points to. If `docs/product-roadmap.md` or `docs/prd.md` is missing, stop and tell the user to run the **Product Planner** skill first (part of BuilderOS: https://github.com/BuildGreatProducts/builder-os).
 
 ## Work loop
 

@@ -252,7 +252,7 @@ Then suggest the natural next step based on project state:
 - If `docs/product-vision.md` exists but `docs/prd.md` does not → "Run the **Product Planner** skill to generate the PRD — it'll consume these tokens directly."
 - If neither exists → "Run the **Product Planner** skill if you want to wrap this design into a full product vision and PRD."
 
-If the Product Planner skill isn't installed, mention that it's part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS.
+If the Product Planner skill isn't installed, mention that it's part of BuilderOS: https://github.com/BuildGreatProducts/builder-os.
 
 -----
 

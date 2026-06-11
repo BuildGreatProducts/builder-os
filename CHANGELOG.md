@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.4.0] - 2026-06-11
 
 ### Added
-- **`npx skills add` installation** via the [skills CLI](https://github.com/vercel-labs/skills): install everything with `npx skills add BuildGreatProducts/BuilderOS`, a single skill by path (`.../skills/product-planner`) or by name (`--skill product-planner`). README gained a full Installation section
+- **`npx skills add` installation** via the [skills CLI](https://github.com/vercel-labs/skills): install everything with `npx skills add BuildGreatProducts/builder-os`, a single skill by path (`.../skills/product-planner`) or by name (`--skill product-planner`). README gained a full Installation section
 - MIT `LICENSE.txt` at the repo root
 
 ### Changed

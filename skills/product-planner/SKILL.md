@@ -45,7 +45,7 @@ Generate documents from `docs/VISION.md`. See "Document Generation" below.
 
 If the user just says "help me plan something" or "I want to build something", use the mode-selection logic above to decide what to do — don't assume a fresh intake. Only start the vision intake if `docs/VISION.md` does not exist.
 
-**Validation nudge:** If `docs/product-idea.md` exists but `docs/validation-report.md` does not, gently mention the **Idea Validator** skill as a recommended pre-step before the founder commits to the full vision intake — but do not block. Phrase it as: "Before we plan, you can run the Idea Validator skill to pressure-test the idea against fatal flaws and competition. It usually surfaces a sharper target user and a smaller MVP. Want to validate first, or proceed straight to the intake?" If the Idea Validator isn't installed, note it's part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS. Honor the founder's choice without arguing.
+**Validation nudge:** If `docs/product-idea.md` exists but `docs/validation-report.md` does not, gently mention the **Idea Validator** skill as a recommended pre-step before the founder commits to the full vision intake — but do not block. Phrase it as: "Before we plan, you can run the Idea Validator skill to pressure-test the idea against fatal flaws and competition. It usually surfaces a sharper target user and a smaller MVP. Want to validate first, or proceed straight to the intake?" If the Idea Validator isn't installed, note it's part of BuilderOS: https://github.com/BuildGreatProducts/builder-os. Honor the founder's choice without arguing.
 
 -----
 
@@ -256,7 +256,7 @@ When all three documents are written, tell the user:
 > - Run a **Build Loop** skill to start building from the roadmap
 > - Run the **Launch Checklist** skill when you're ready to go live"
 
-If any of those skills aren't installed, note they're all part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS.
+If any of those skills aren't installed, note they're all part of BuilderOS: https://github.com/BuildGreatProducts/builder-os.
 
 -----
 

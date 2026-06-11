@@ -1,5 +1,7 @@
 # BuilderOS
 
+> **Formerly PLAID.** BuilderOS is the successor to [PLAID — Product Led AI Development](https://github.com/BuildGreatProducts/plaid). The PLAID skills have been refactored into standalone BuilderOS skills; new development happens here.
+
 **An operating system for builders.** BuilderOS is a collection of agent skills that give product builders a repeatable system for ideating, designing, and building software products with AI — turning coding agents from autocomplete into disciplined collaborators that ship reviewed, tested work.
 
 ## Why
@@ -84,7 +86,7 @@ BuilderOS uses the [skills CLI](https://github.com/vercel-labs/skills). Run thes
 ### Everything in one go
 
 ```sh
-npx skills add BuildGreatProducts/BuilderOS
+npx skills add BuildGreatProducts/builder-os
 ```
 
 Installs every BuilderOS skill at once. Use this if you want the full ideate → plan → design → build → launch pipeline.
@@ -92,15 +94,15 @@ Installs every BuilderOS skill at once. Use this if you want the full ideate →
 ### Individual skills
 
 ```sh
-npx skills add BuildGreatProducts/BuilderOS/skills/idea-generator
-npx skills add BuildGreatProducts/BuilderOS/skills/idea-validator
-npx skills add BuildGreatProducts/BuilderOS/skills/product-planner
-npx skills add BuildGreatProducts/BuilderOS/skills/design-system
-npx skills add BuildGreatProducts/BuilderOS/skills/build-mvp
-npx skills add BuildGreatProducts/BuilderOS/skills/build-loop-claude-code
-npx skills add BuildGreatProducts/BuilderOS/skills/build-loop-codex
-npx skills add BuildGreatProducts/BuilderOS/skills/build-loop-cursor
-npx skills add BuildGreatProducts/BuilderOS/skills/launch-checklist
+npx skills add BuildGreatProducts/builder-os/skills/idea-generator
+npx skills add BuildGreatProducts/builder-os/skills/idea-validator
+npx skills add BuildGreatProducts/builder-os/skills/product-planner
+npx skills add BuildGreatProducts/builder-os/skills/design-system
+npx skills add BuildGreatProducts/builder-os/skills/build-mvp
+npx skills add BuildGreatProducts/builder-os/skills/build-loop-claude-code
+npx skills add BuildGreatProducts/builder-os/skills/build-loop-codex
+npx skills add BuildGreatProducts/builder-os/skills/build-loop-cursor
+npx skills add BuildGreatProducts/builder-os/skills/launch-checklist
 ```
 
 Every skill is fully self-contained — install just the Design System to turn a screenshot into design tokens, or just a Build Loop to execute a roadmap someone else wrote. You only need the Build Loop for the coding agent you actually use.
@@ -108,7 +110,7 @@ Every skill is fully self-contained — install just the Design System to turn a
 ### By skill name
 
 ```sh
-npx skills add BuildGreatProducts/BuilderOS --skill product-planner
+npx skills add BuildGreatProducts/builder-os --skill product-planner
 ```
 
 ### Manual installation

@@ -222,7 +222,7 @@ After writing `docs/product-idea.md`, say:
 
 If the Idea Validator or Product Planner skill is not installed, append:
 
-> "Both skills are part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS"
+> "Both skills are part of BuilderOS: https://github.com/BuildGreatProducts/builder-os"
 
 If the founder wants to continue immediately and the relevant skill is installed, hand off — the receiving skill will use `docs/product-idea.md` as pre-filled context.
 
