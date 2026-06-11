@@ -37,7 +37,7 @@ validation-report.md  prd.md                     tested
 
 | Skill | What it does | Output |
 |---|---|---|
-| [Product Planner](skills/Product%20Planner/SKILL.md) | A structured vision-intake conversation (8 sections, AI-suggested answers throughout) followed by generation of your three core product documents: strategy & brand, a coding-agent-ready technical spec, and a phased build plan with task checkboxes. | `docs/vision.json`, `docs/product-vision.md`, `docs/prd.md`, `docs/product-roadmap.md` |
+| [Product Planner](skills/Product%20Planner/SKILL.md) | A structured vision-intake conversation (8 sections, AI-suggested answers throughout) followed by generation of your three core product documents: strategy & brand, a coding-agent-ready technical spec, and a phased build plan with task checkboxes. | `docs/VISION.md`, `docs/product-vision.md`, `docs/prd.md`, `docs/product-roadmap.md` |
 | [Design System](skills/Design%20System/SKILL.md) | Translates images (screenshots, mockups, Figma URLs) into a design system in [Google's open design.md format](https://github.com/google-labs-code/design.md) — YAML design tokens plus prose rationale any coding agent can implement from. | `docs/design.md` |
 
 ### Build
@@ -66,7 +66,7 @@ All skills read and write a shared `docs/` folder at your project root. Run them
 |---|---|---|
 | `product-idea.md` | Idea Generator | Idea Validator, Product Planner |
 | `validation-report.md` | Idea Validator | you |
-| `vision.json` | Product Planner (intake) | Product Planner (generation), Design System |
+| `VISION.md` | Product Planner (intake) | Product Planner (generation), Design System |
 | `product-vision.md` | Product Planner | Design System, Build Loop |
 | `prd.md` | Product Planner | Build Loop |
 | `product-roadmap.md` | Product Planner | Build Loop (tracks progress via checkboxes) |

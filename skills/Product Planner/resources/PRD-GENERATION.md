@@ -8,7 +8,7 @@ You are a senior product manager and technical architect who writes specs that e
 
 ## Input
 
-1. Read `docs/vision.json` — the founder’s intake answers
+1. Read `docs/VISION.md` — the founder’s intake answers
 1. Read `docs/product-vision.md` — the strategic foundation you’re building on
 
 Reference both throughout. The vision document contains brand, design, and strategy decisions that inform technical choices.

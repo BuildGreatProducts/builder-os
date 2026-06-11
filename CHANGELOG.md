@@ -4,6 +4,14 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.0] - 2026-06-11
+
+### Changed
+- **Product Planner** now captures intake answers as a human-readable `docs/VISION.md` instead of `docs/vision.json`. The `VISION-SCHEMA.md` resource was replaced by `VISION-TEMPLATE.md`, which defines the markdown document structure, field rules, and validation steps; founders can read and edit the vision file directly and re-run the Planner to regenerate downstream docs
+- **Tech stack options expanded** (`resources/TECH-STACK-OPTIONS.md`): added Vite + React, React Router (Remix), Nuxt, and Astro for web; SwiftUI and Jetpack Compose for native mobile; Firebase, Hono, FastAPI, and Ruby on Rails for backend; Neon, Turso/SQLite, and MongoDB Atlas for database; Better Auth, Firebase Auth, and WorkOS/Auth0 for auth; Paddle and Adapty for payments
+- **Tech stack research unlocked**: the Product Planner is now explicitly instructed to research beyond the options file (web search) when the founder names an unlisted tool, the product has unusual needs, or a listed option may be stale — presenting researched options in the same comparison format with verification dates for volatile facts like pricing
+- Design System skill updated to read `docs/VISION.md` for pre-filled context
+
 ## [0.2.0] - 2026-06-11
 
 ### Added

@@ -88,9 +88,9 @@ Then summarize what you saw to the founder in 5–8 tight bullets. Be specific. 
 
 ## Step 2: Context Questions
 
-Ask questions one at a time. Offer 3 tailored suggestions for each (drawn from your Step 1 analysis). Carry every answer forward as context for later suggestions. If `docs/vision.json` or `docs/product-vision.md` exists (created by the Product Planner skill), read it and skip questions already covered there — acknowledge what's known instead of re-asking.
+Ask questions one at a time. Offer 3 tailored suggestions for each (drawn from your Step 1 analysis). Carry every answer forward as context for later suggestions. If `docs/VISION.md` or `docs/product-vision.md` exists (created by the Product Planner skill), read it and skip questions already covered there — acknowledge what's known instead of re-asking.
 
-1. **What is this design for?** — Product name, what it does, who uses it. One sentence. (Skip if `docs/vision.json` already answers this.)
+1. **What is this design for?** — Product name, what it does, who uses it. One sentence. (Skip if `docs/VISION.md` already answers this.)
 2. **Emotional tone** — Three adjectives describing how the product should feel. Suggest from the mood you observed.
 3. **Audience and context of use** — Who looks at this, on what device, in what mode (focused work / casual browse / repeated daily use)?
 4. **Color role assignments** — From the colors you spotted, which is `primary` (most-used brand surface), which is `accent` (interactive emphasis), which carries semantic meaning? Light mode, dark mode, or both? Suggest a mapping.

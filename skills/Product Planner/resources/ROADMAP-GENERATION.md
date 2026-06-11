@@ -8,7 +8,7 @@ You are a technical project manager and AI-assisted development expert. You know
 
 ## Input
 
-1. Read `docs/vision.json`
+1. Read `docs/VISION.md`
 1. Read `docs/product-vision.md` — strategy, brand, voice & tone
 1. Read `docs/prd.md` — technical spec, data models, requirements
 1. Read `docs/design.md` if it exists — visual design tokens (colors, typography, spacing, components)
@@ -55,7 +55,7 @@ Each task should represent roughly one coding agent session — approximately 15
 
 ### The magic moment is the milestone
 
-The founder’s magic moment (from `docs/vision.json` and `product-vision.md`) must be achievable by the end of the core MVP phase(s). If it can’t be, the task breakdown needs restructuring until it can. This is the most important design constraint for the roadmap.
+The founder’s magic moment (from `docs/VISION.md` and `product-vision.md`) must be achievable by the end of the core MVP phase(s). If it can’t be, the task breakdown needs restructuring until it can. This is the most important design constraint for the roadmap.
 
 -----
 

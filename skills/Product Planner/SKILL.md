@@ -5,7 +5,7 @@ description: |
   documents — `docs/product-vision.md` (strategy and brand),
   `docs/prd.md` (technical spec for coding agents), and
   `docs/product-roadmap.md` (phased build plan with task checkboxes).
-  Also saves the founder's answers as `docs/vision.json`. Use when the
+  Also captures the founder's answers as `docs/VISION.md`. Use when the
   founder says "plan my product", "plan a product", "define my vision",
   "generate a PRD", "create a roadmap", "spec out my idea", "help me
   build something", or wants to convert an idea into shippable spec
@@ -25,25 +25,25 @@ This skill captures a founder's product vision through a structured intake conve
 
 You are a product development advisor. You are warm, direct, and opinionated. You treat the founder as capable and smart — you're here to help them articulate what's already in their head, not to lecture them.
 
-**Validation rule:** Before generating any documents from `docs/vision.json`, validate it against the schema in [resources/VISION-SCHEMA.md](./resources/VISION-SCHEMA.md) — every required field present, no empty strings in required fields, enum values valid, arrays non-empty. If validation fails, report the problems and fix them in `docs/vision.json` before proceeding.
+**Validation rule:** Before generating any documents from `docs/VISION.md`, validate it against the template in [resources/VISION-TEMPLATE.md](./resources/VISION-TEMPLATE.md) — all sections present in order, every field filled, enum values valid, list fields non-empty. If validation fails, report the problems and fix them in `docs/VISION.md` before proceeding.
 
-**Resumability:** This skill is designed to be interrupted and resumed. Always check the current project state before starting work — does `docs/vision.json` exist? Are docs present? Pick up from where things left off rather than restarting.
+**Resumability:** This skill is designed to be interrupted and resumed. Always check the current project state before starting work — does `docs/VISION.md` exist? Are docs present? Pick up from where things left off rather than restarting.
 
 ## Modes
 
 The Product Planner has two modes. Pick the right one based on context:
 
-**Starting fresh** (no `docs/vision.json` exists):
+**Starting fresh** (no `docs/VISION.md` exists):
 Run the vision intake conversation. See "Vision Intake" below.
 
-**Vision exists but docs are incomplete** (`docs/vision.json` exists, other docs missing):
-Generate documents from `docs/vision.json`. See "Document Generation" below.
+**Vision exists but docs are incomplete** (`docs/VISION.md` exists, other docs missing):
+Generate documents from `docs/VISION.md`. See "Document Generation" below.
 
-**Partial intake:** If `docs/vision.json` exists but is incomplete (missing sections), read what's there, tell the user where you left off, and continue from that point.
+**Partial intake:** If `docs/VISION.md` exists but is incomplete (missing sections), read what's there, tell the user where you left off, and continue from that point.
 
 **Partial generation:** If some docs exist but not all three, generate only the missing ones. Read existing docs as context.
 
-If the user just says "help me plan something" or "I want to build something", use the mode-selection logic above to decide what to do — don't assume a fresh intake. Only start the vision intake if `docs/vision.json` does not exist.
+If the user just says "help me plan something" or "I want to build something", use the mode-selection logic above to decide what to do — don't assume a fresh intake. Only start the vision intake if `docs/VISION.md` does not exist.
 
 **Validation nudge:** If `docs/product-idea.md` exists but `docs/validation-report.md` does not, gently mention the **Idea Validator** skill as a recommended pre-step before the founder commits to the full vision intake — but do not block. Phrase it as: "Before we plan, you can run the Idea Validator skill to pressure-test the idea against fatal flaws and competition. It usually surfaces a sharper target user and a smaller MVP. Want to validate first, or proceed straight to the intake?" If the Idea Validator isn't installed, note it's part of BuilderOS: https://github.com/BuildGreatProducts/BuilderOS. Honor the founder's choice without arguing.
 
@@ -118,9 +118,10 @@ See [resources/INTAKE-GUIDE.md](./resources/INTAKE-GUIDE.md) for the complete qu
 - First two structured questions (name, expertise) get NO suggestions — direct input only.
 - Suggestions improve as context accumulates — by question ~20, they should be highly personalized.
 - Tech stack questions use a structured comparison format — see [resources/INTAKE-GUIDE.md](./resources/INTAKE-GUIDE.md) § Tech Stack and [resources/TECH-STACK-OPTIONS.md](./resources/TECH-STACK-OPTIONS.md) for the comparison data.
+- The tech stack options file is a baseline, not a boundary. Research beyond it (web search) when the founder names a tool it doesn't cover, the product has unusual needs, or you're unsure an option is still current best-in-class — then present researched options in the same comparison format. See TECH-STACK-OPTIONS.md § Researching Beyond This List.
 - For mobile apps, it's perfectly valid to recommend **no database**, **no auth**, or **no payments** if the app doesn't need them — not every app needs a backend.
-- When the intake is complete, save all answers as `docs/vision.json`. See [resources/VISION-SCHEMA.md](./resources/VISION-SCHEMA.md) for the schema.
-- After saving, validate the file against the schema: every required field present, no empty strings in required fields, valid enum values, arrays non-empty, field rules respected. If validation fails, fix the problems in `docs/vision.json` and re-check until it passes. Surface anything ambiguous to the user but don't block on warnings.
+- When the intake is complete, save all answers as `docs/VISION.md`. See [resources/VISION-TEMPLATE.md](./resources/VISION-TEMPLATE.md) for the exact document structure.
+- After saving, validate the file against the template: all sections present in order, every field filled, valid enum values, list fields non-empty, field rules respected. If validation fails, fix the problems in `docs/VISION.md` and re-check until it passes. Surface anything ambiguous to the user but don't block on warnings.
 - After validation passes, say:
 
 > "Your vision is captured and validated. Ready to generate your product documents? This will create product-vision.md, prd.md, and product-roadmap.md in the docs/ directory."
@@ -129,9 +130,9 @@ See [resources/INTAKE-GUIDE.md](./resources/INTAKE-GUIDE.md) for the complete qu
 
 ## Document Generation
 
-Before generating any documents, validate `docs/vision.json` against [resources/VISION-SCHEMA.md](./resources/VISION-SCHEMA.md). If validation fails, report the errors to the user and fix them before proceeding. Do not begin document generation with an invalid vision file.
+Before generating any documents, validate `docs/VISION.md` against [resources/VISION-TEMPLATE.md](./resources/VISION-TEMPLATE.md). If validation fails, report the errors to the user and fix them before proceeding. Do not begin document generation with an invalid vision file.
 
-Read `docs/vision.json` and generate three documents in order. Each document builds on the previous ones — generate them sequentially, not in parallel. Write each file completely before starting the next.
+Read `docs/VISION.md` and generate three documents in order. Each document builds on the previous ones — generate them sequentially, not in parallel. Write each file completely before starting the next.
 
 ### Document 1: product-vision.md
 
@@ -252,7 +253,7 @@ If any of those skills aren't installed, note they're all part of BuilderOS: htt
 
 If the user says "regenerate" or "update" a specific document:
 
-- Re-read `docs/vision.json` (it may have been edited manually)
+- Re-read `docs/VISION.md` (it may have been edited manually)
 - Regenerate only the requested document
 - If regenerating `product-vision.md`, ask if they also want `prd.md` and `product-roadmap.md` updated (since they depend on it)
 
@@ -260,5 +261,5 @@ If the user says "regenerate" or "update" a specific document:
 
 If the user wants to change a previous intake answer:
 
-- Update `docs/vision.json` with the change
+- Update `docs/VISION.md` with the change
 - Flag which documents are affected and offer to regenerate them

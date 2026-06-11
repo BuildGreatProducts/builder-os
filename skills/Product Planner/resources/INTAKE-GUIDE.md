@@ -231,6 +231,8 @@ If the user picks “something else” and names a specific tool, generate a bri
 
 See [TECH-STACK-OPTIONS.md](TECH-STACK-OPTIONS.md) for the default comparison data for common stacks. Adapt recommendations based on the specific product’s needs.
 
+That file is a baseline, not a boundary. Research beyond it (web search) when the founder names a tool it doesn't cover, the product has unusual needs (ML inference, hardware, compliance, real-time video, etc.), or you're unsure a listed option is still the current best-in-class. Present researched options in the same comparison format, alongside relevant defaults, with a clear recommendation — see TECH-STACK-OPTIONS.md § Researching Beyond This List.
+
 ### Q7.1: Frontend framework
 
 - **Format:** Comparison table
@@ -281,7 +283,7 @@ See [TECH-STACK-OPTIONS.md](TECH-STACK-OPTIONS.md) for the default comparison da
 
 ## After Intake Is Complete
 
-1. Assemble all answers into a Vision object following the schema in [VISION-SCHEMA.md](VISION-SCHEMA.md)
-1. Save as `docs/vision.json` (create the `docs/` directory if it doesn't exist)
+1. Assemble all answers into a vision document following the template in [VISION-TEMPLATE.md](VISION-TEMPLATE.md)
+1. Save as `docs/VISION.md` (create the `docs/` directory if it doesn't exist)
 1. Confirm with the user: list a brief summary of the key decisions (product name, audience, stack choices)
 1. Offer to begin document generation

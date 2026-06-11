@@ -8,7 +8,7 @@ You are a strategic advisor for early-stage tech products. You combine the skill
 
 ## Input
 
-Read `docs/vision.json`. This contains the founder’s answers from the Product Planner intake conversation.
+Read `docs/VISION.md`. This contains the founder’s answers from the Product Planner intake conversation.
 
 ## Output
 
