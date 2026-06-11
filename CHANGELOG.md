@@ -4,6 +4,14 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.5.0] - 2026-06-11
+
+### Added
+- **Build MVP** (`skills/build-mvp`): executes the entire `docs/product-roadmap.md` end to end — implementing, testing, and verifying every task in order, marking checkboxes, updating the status line, and opening a PR per phase until the magic moment works. Agent-agnostic; complements the per-task Build Loop skills
+
+### Changed
+- Build MVP refactored from ProductOS's `studio-deploy-mvp-build`: renamed to `build-mvp`, document paths rewired from ProductOS conventions (`docs/PRD.md`, `docs/ROADMAP.md`, `docs/PRODUCT.md`, `docs/DESIGN.md`) to BuilderOS ones (`docs/prd.md`, `docs/product-roadmap.md`, `docs/product-vision.md`, `docs/design.md`), and the missing-docs handoff now points to the Product Planner skill instead of `studio-deploy-prd-roadmap`
+
 ## [0.4.0] - 2026-06-11
 
 ### Added

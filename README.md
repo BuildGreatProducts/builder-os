@@ -42,7 +42,11 @@ validation-report.md  prd.md                     tested
 
 ### Build
 
-Quality-gated feature work: nothing ships on "it compiles" — every increment is **built → reviewed → tested end to end → fixed** before the agent reports "done." Works from the Product Planner's roadmap or a direct prompt. Available in three flavors, adapted to each agent's native review tooling:
+| Skill | What it does | Output |
+|---|---|---|
+| [Build MVP](skills/build-mvp/SKILL.md) | Executes the entire roadmap end to end: works through every task in `docs/product-roadmap.md` in order — implementing, testing, and verifying each before moving on — marking checkboxes, updating the status line, and opening a PR per phase, until the magic moment works. Agent-agnostic. | Working code, a PR per phase, completed roadmap |
+
+For tighter, review-gated increments, use a **Build Loop** instead: nothing ships on "it compiles" — every increment is **built → reviewed → tested end to end → fixed** before the agent reports "done." Works from the Product Planner's roadmap or a direct prompt. Available in three flavors, adapted to each agent's native review tooling:
 
 | Skill | Agent | Review mechanism |
 |---|---|---|
@@ -67,10 +71,10 @@ All skills read and write a shared `docs/` folder at your project root. Run them
 | `product-idea.md` | Idea Generator | Idea Validator, Product Planner |
 | `validation-report.md` | Idea Validator | you |
 | `VISION.md` | Product Planner (intake) | Product Planner (generation), Design System |
-| `product-vision.md` | Product Planner | Design System, Build Loop |
-| `prd.md` | Product Planner | Build Loop |
-| `product-roadmap.md` | Product Planner | Build Loop (tracks progress via checkboxes) |
-| `design.md` | Design System | Product Planner, Build Loop |
+| `product-vision.md` | Product Planner | Design System, Build MVP, Build Loop |
+| `prd.md` | Product Planner | Build MVP, Build Loop |
+| `product-roadmap.md` | Product Planner | Build MVP, Build Loop (progress tracked via checkboxes) |
+| `design.md` | Design System | Product Planner, Build MVP, Build Loop |
 | `launch-checklist.md` | Launch Checklist | you |
 
 ## Installation
@@ -92,6 +96,7 @@ npx skills add BuildGreatProducts/BuilderOS/skills/idea-generator
 npx skills add BuildGreatProducts/BuilderOS/skills/idea-validator
 npx skills add BuildGreatProducts/BuilderOS/skills/product-planner
 npx skills add BuildGreatProducts/BuilderOS/skills/design-system
+npx skills add BuildGreatProducts/BuilderOS/skills/build-mvp
 npx skills add BuildGreatProducts/BuilderOS/skills/build-loop-claude-code
 npx skills add BuildGreatProducts/BuilderOS/skills/build-loop-codex
 npx skills add BuildGreatProducts/BuilderOS/skills/build-loop-cursor
@@ -118,7 +123,7 @@ Clone this repo and copy the skill folders you want into your project's skills d
    - Have an idea? → "validate my idea"
    - Idea validated? → "plan my product"
    - Have a reference design? → "create a design system from this image"
-   - Docs ready? → "run the build loop"
+   - Docs ready? → "build my MVP" (whole roadmap) or "run the build loop" (task by task)
    - Product built? → "create my launch checklist"
 
 ## Changelog
