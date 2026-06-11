@@ -51,9 +51,25 @@ If the user just says "help me plan something" or "I want to build something", u
 
 ## Vision Intake
 
+### Step 0: Check for a captured idea
+
+Before asking anything, look for `docs/product-idea.md`. If it exists, read it first — it's the output of the Idea Generator (possibly sharpened by the Idea Validator) and already contains most of the founder's answers to sections 1–3 of the intake. Specifically:
+
+- Section 1 (About You) → covered by Background + Why you
+- Section 2 (Your Purpose) → covered by The problem + Target user + Why you
+- Section 3 (Your Product, partially) → covered by One-liner + Proposed solution
+
+Open by acknowledging it instead of asking cold:
+
+> "I found your captured idea — [one-liner from the file]. I'll use it to pre-fill the intake so we can skip what's already answered. Still the direction you want to plan, or has it changed?"
+
+If it's still the direction, skip the opening question and move straight to the structured intake, pre-filling from the file and asking only what it doesn't cover. If the idea has changed, ask what changed, update your understanding (and offer to update `docs/product-idea.md` to match), then proceed.
+
+Only when `docs/product-idea.md` does not exist, fall through to the opening question below.
+
 ### Opening Question
 
-Start every new planning session with:
+Start a planning session that has no captured idea with:
 
 > **"What do you want to build?"**
 
@@ -78,11 +94,6 @@ This question is deliberately open-ended. The founder might respond with anythin
 
 - Recommend the **Idea Generator** skill if it's installed — it runs a full guided idea-discovery conversation and writes `docs/product-idea.md`, which this skill consumes.
 - If it isn't installed, run a lightweight version inline: ask about their skills, interests, and what problems they notice in their daily life; ask what kind of work energizes them; offer 3 product concepts based on their answers — each addressing a real problem in a space connected to their background. Let them pick one or riff on the ideas to form their own. Then transition into the structured intake.
-
-**If `docs/product-idea.md` already exists:** Read it first. Most of the founder's answers to sections 1–3 of the intake are already captured there. Acknowledge what you know and move directly to questions the file doesn't cover. Specifically:
-- Section 1 (About You) → covered by Background + Why you
-- Section 2 (Your Purpose) → covered by The problem + Target user + Why you
-- Section 3 (Your Product, partially) → covered by One-liner + Proposed solution
 
 ### Transition to Structured Intake
 

@@ -1,6 +1,10 @@
 ---
-name: codex-build-loop
+name: build-loop-codex
 description: Use when building features with **Codex** (OpenAI Codex CLI) in any codebase and the work should go through a disciplined build → review → test → fix loop. Triggers on "run the build loop", "build the next task", "continue the plan", "build this feature properly", or any request to implement work from a plan file or a direct feature prompt. Builds from the plan (or the prompt if no plan exists), runs Codex's `/review` on uncommitted changes and fixes every issue found, tests and verifies the feature end to end, fixes anything testing surfaces, and reports back once complete. Repeats until all plan tasks are checked off.
+license: MIT
+metadata:
+  author: BuilderOS
+  version: "1.0"
 ---
 
 # Codex Build Loop

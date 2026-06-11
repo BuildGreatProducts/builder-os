@@ -4,6 +4,17 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.4.0] - 2026-06-11
+
+### Added
+- **`npx skills add` installation** via the [skills CLI](https://github.com/vercel-labs/skills): install everything with `npx skills add BuildGreatProducts/BuilderOS`, a single skill by path (`.../skills/product-planner`) or by name (`--skill product-planner`). README gained a full Installation section
+- MIT `LICENSE.txt` at the repo root
+
+### Changed
+- **All skill folders renamed to kebab-case** (`Build Loop - Claude Code` → `build-loop-claude-code`, `Product Planner` → `product-planner`, etc.) so folders can be copied straight into `.claude/skills/` and addressed by the skills CLI path convention; Build Loop frontmatter names updated to match their folders (`claude-code-build-loop` → `build-loop-claude-code`, and likewise for Codex and Cursor)
+- **Product Planner checks for `docs/product-idea.md` before starting the intake**: a new Step 0 reads the captured idea first, confirms it's still the direction, and pre-fills intake sections 1–3 — the "What do you want to build?" cold open now only runs when no captured idea exists
+- Build Loop skills gained license/author/version frontmatter to match the rest of the catalog
+
 ## [0.3.0] - 2026-06-11
 
 ### Changed
