@@ -4,6 +4,11 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.5.1] - 2026-06-12
+
+### Changed
+- **Build MVP no longer touches git during the build**: removed the per-phase branch/push/PR workflow and added an explicit rule that no git or GitHub actions happen until every phase is complete. Phase boundaries are now verification-only. A new Wrap up section runs once at the end: initialize git (with a stack-appropriate `.gitignore`), create the initial commit, then ask the user whether to connect a remote repo — never creating or pushing one unprompted
+
 ## [0.5.0] - 2026-06-11
 
 ### Added

@@ -46,7 +46,7 @@ validation-report.md  prd.md                     tested
 
 | Skill | What it does | Output |
 |---|---|---|
-| [Build MVP](skills/build-mvp/SKILL.md) | Executes the entire roadmap end to end: works through every task in `docs/product-roadmap.md` in order — implementing, testing, and verifying each before moving on — marking checkboxes, updating the status line, and opening a PR per phase, until the magic moment works. Agent-agnostic. | Working code, a PR per phase, completed roadmap |
+| [Build MVP](skills/build-mvp/SKILL.md) | Executes the entire roadmap end to end: works through every task in `docs/product-roadmap.md` in order — implementing, testing, and verifying each before moving on — marking checkboxes and updating the status line until the magic moment works. Finishes by initializing git with an initial commit and offering to connect a remote repo. Agent-agnostic. | Working code, completed roadmap, initial git commit |
 
 For tighter, review-gated increments, use a **Build Loop** instead: nothing ships on "it compiles" — every increment is **built → reviewed → tested end to end → fixed** before the agent reports "done." Works from the Product Planner's roadmap or a direct prompt. Available in three flavors, adapted to each agent's native review tooling:
 
