@@ -4,6 +4,11 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.7.0] - 2026-06-12
+
+### Added
+- **Design System now outputs a `docs/design.html` mirror** alongside `docs/design.md`: a single self-contained, dependency-free, token-driven style guide that renders every color, type level, spacing step, radius, elevation, and component (with variants and states) live in a browser — plus a light/dark toggle when the system defines both modes. The two files are mirrors for two audiences — `design.md` for the coding agent (source of truth), `design.html` for the human — and the skill now writes and edits them together so they never drift (new Step 6; Handoff renumbered to Step 7). Skill bumped to v1.1.
+
 ## [0.6.0] - 2026-06-12
 
 ### Added

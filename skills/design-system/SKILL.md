@@ -2,13 +2,14 @@
 name: design-system
 description: |
   Translates an image (or a set of image references — screenshots,
-  mockups, Figma URLs, live websites) into a high-quality `docs/design.md`
-  file following Google's open
-  [design.md](https://github.com/google-labs-code/design.md) format.
-  Reads the imagery, asks targeted clarifying questions, derives YAML
-  design tokens (colors, typography, spacing, rounded, components),
-  and writes prose rationale that any AI coding agent can consume.
-  Fully standalone — requires no other document or skill. Use when the
+  mockups, Figma URLs, live websites) into two mirrored design-system
+  artifacts: `docs/design.md` (YAML tokens + prose, following Google's open
+  [design.md](https://github.com/google-labs-code/design.md) format, for the
+  coding agent) and `docs/design.html` (a self-contained, token-driven style
+  guide rendering every token and component live, for the human to read).
+  Reads the imagery, asks targeted clarifying questions, derives the design
+  tokens (colors, typography, spacing, rounded, components), and writes both
+  files. Fully standalone — requires no other document or skill. Use when the
   founder says "create a design system", "design from image",
   "translate image to design", "create design.md", "image to design
   system", "extract design tokens", or shares an image with no other
@@ -16,13 +17,18 @@ description: |
 license: MIT
 metadata:
   author: BuilderOS
-  version: "1.0"
+  version: "1.1"
   compatibility: Requires file system access to write the docs/ directory. Optional Figma MCP for Figma URLs.
 ---
 
-# Design — Image to design.md Translation
+# Design System — Image to design.md + design.html
 
-This skill takes an image (or a set of image references) and translates them into a high-quality `design.md` file in [Google's open design.md format](https://github.com/google-labs-code/design.md). The output is `docs/design.md` — a YAML token block that gives a coding agent exact implementation values, plus prose rationale that explains the *why* behind those tokens.
+This skill takes an image (or a set of image references) and translates them into a design system captured as **two mirrored files**:
+
+- **`docs/design.md`** — a YAML token block in [Google's open design.md format](https://github.com/google-labs-code/design.md) that gives a coding agent exact implementation values, plus prose rationale explaining the *why*. This is the **source of truth**.
+- **`docs/design.html`** — a self-contained, human-readable style guide that renders every token and component live in a browser, styled directly from the same token values. This is the **mirror** the human reads.
+
+Same design system, two audiences: the agent reads the `.md`, the human opens the `.html`. They must always be written and updated together so they never drift.
 
 ## When to Use This
 
@@ -35,7 +41,7 @@ This skill takes an image (or a set of image references) and translates them int
 
 **No image provided yet:** Ask for one (or more) before doing anything else. Don't draft a design.md from imagination.
 
-**`docs/design.md` already exists:** Read it and ask what they want to do — refine specific tokens or sections, replace it with a fresh analysis from new imagery, or merge the new analysis into the existing tokens. Confirm before destructive overwrites.
+**`docs/design.md` already exists:** Read it (and `docs/design.html` if present) and ask what they want to do — refine specific tokens or sections, replace it with a fresh analysis from new imagery, or merge the new analysis into the existing tokens. Confirm before destructive overwrites. Whatever changes, regenerate `docs/design.html` so it stays in sync with the `.md`.
 
 **Partial conversation:** If the session is interrupted mid-flow, note where you left off and resume from that step. Don't restart.
 
@@ -181,7 +187,7 @@ Before writing, show the founder a brief outline:
 - The YAML token names you've picked (color tokens, type scale levels, rounded scale, spacing scale, component list)
 - A one-line summary of each prose section
 
-Ask for any last edits. Then write to `docs/design.md`. Create the `docs/` directory if it doesn't exist.
+Ask for any last edits. Then write to `docs/design.md`. Create the `docs/` directory if it doesn't exist. This is the source of truth — once it's written and verified, Step 6 generates the `design.html` mirror from it.
 
 ### File format
 
@@ -236,15 +242,47 @@ After writing, verify the write succeeded before confirming. If the write fails,
 - **Existing file conflict** (read-only or unexpected contents) → "A `docs/design.md` already exists and I can't overwrite it. Want me to save under a different name or overwrite?"
 - **Any other error** → Report the error message verbatim and ask how to proceed.
 
-Only confirm "saved" after the write is verified successful.
+Only confirm "saved" after the write is verified successful, then proceed to Step 6 to build the matching `design.html`.
 
 -----
 
-## Step 6: Handoff
+## Step 6: Build the design.html mirror
 
-After writing `docs/design.md`, say:
+`docs/design.html` is the human-readable twin of `docs/design.md`. Same system, two audiences: the `.md` gives the coding agent exact tokens and rationale; the `.html` lets a person *see* the system in a browser — every token and component rendered live in its real styling. They are mirrors and must never drift: **`design.md` is the source of truth; `design.html` is generated from it.** Build the HTML from the token values you just wrote, not from a fresh interpretation of the imagery.
 
-> "Your design system is captured at `docs/design.md`. The YAML front matter gives any coding agent exact tokens to implement. The prose explains the *why* so they can make informed choices when the tokens don't cover an edge case."
+Build a single self-contained `.html` file to these requirements:
+
+- **Self-contained and dependency-free.** One file that opens directly in any browser — all CSS inline in a `<style>` block, no build step, no frameworks, no external JS. Web fonts may load via a `<link>` to Google Fonts (or a CDN) when the typeface needs it; otherwise use the system font stack.
+- **Token-driven.** Declare every token from the YAML as a CSS custom property in `:root` (e.g. `--color-primary`, `--type-h1-size`, `--rounded-md`, `--space-4`). Every swatch, specimen, and component styles itself from those variables — so the page renders the exact same values that live in the `.md`, and changing a variable updates everything. Don't hardcode values that exist as tokens.
+- **Mirror the md's structure and order**, so a reader can hold the two side by side.
+- If the system defines **both light and dark modes**, include a small theme toggle (a few lines of vanilla JS flipping a `data-theme` attribute on `<html>`) and define both token sets. Otherwise render the single mode.
+
+Sections, in this order:
+
+1. **Header** — design system name, the one-line description, and a note that this file is the human-readable mirror of `docs/design.md`.
+2. **Colors** — a swatch for every color token: the color block, the token name, the hex value, and a line of text in the paired `on-` color to show the combination. Group semantic states (success / warning / error / info) together.
+3. **Typography** — render each type-scale level as a live specimen at its real family / size / weight / line-height / letter-spacing, with the token name and its spec listed beside it.
+4. **Spacing** — a visual bar or box for each spacing step, labeled with the token and value, so the rhythm is visible.
+5. **Radius** — a sample box rendered at each `rounded` value, labeled.
+6. **Elevation & Depth** — a card for each elevation level (its shadow or border strategy), labeled.
+7. **Components** — every component from the `components:` block, built out and rendered live, including each variant and state (default / hover / active / disabled / focus). Group related entries together (e.g. all button variants). Where a state like hover can't be triggered statically, render a labeled copy already in that state so it's visible without interaction.
+8. **Do's and Don'ts** — the same do's and don'ts as the md, laid out as two readable columns (✓ do / ✗ don't), with a small visual example where it helps.
+
+Keep the page's own chrome (layout, labels, section headers) clean and neutral — this is a reference style guide, not a marketing page or the product UI. The tokens and components should be what stands out.
+
+Write to `docs/design.html`. Verify the write succeeded using the same error handling as the `.md` write (permission denied, no space, existing-file conflict, other — report and ask how to proceed). The `.md` and `.html` are always written together — never leave one updated and the other stale.
+
+-----
+
+## Step 7: Handoff
+
+After writing both files, say:
+
+> "Your design system is captured in two mirrored files:
+> - **`docs/design.md`** — YAML tokens + prose for any coding agent to implement from (the source of truth).
+> - **`docs/design.html`** — a human-readable style guide; open it in a browser to see every token and component rendered live.
+>
+> They're the same system — one for the agent, one for you. When tokens change, both update together."
 
 Then suggest the natural next step based on project state:
 
@@ -256,13 +294,15 @@ If the Product Planner skill isn't installed, mention that it's part of BuilderO
 
 -----
 
-## Editing the design.md
+## Editing the design system
 
-If the founder wants to refine after the file exists:
+`docs/design.md` is canonical; `docs/design.html` is its rendered mirror. **Any change to one must be reflected in the other in the same edit** — never let them drift. Make the change in the `.md` first, then update the matching part of the `.html` (or regenerate it). If the founder hand-edits the `.html`, fold the change back into the `.md` tokens too.
 
-- **Change a single token** — Update the YAML and any prose that references the old value. Keep YAML and prose in sync.
-- **Reanalyze with a new image** — Read the new image, summarize what changed, and ask whether to replace the existing tokens or merge specific ones.
-- **Rewrite a prose section** — Update only that section. Leave the YAML intact unless the founder also wants tokens changed.
-- **Add a component** — Append a new entry under `components:` and add a paragraph in the Components prose section.
+If the founder wants to refine after the files exist:
 
-Always preserve canonical section order and never create duplicate `##` headings — the design.md spec rejects files with duplicates.
+- **Change a single token** — Update the YAML and any prose that references the old value, then update the corresponding CSS custom property and any affected component in `design.html`. Keep YAML, prose, and HTML in sync.
+- **Reanalyze with a new image** — Read the new image, summarize what changed, and ask whether to replace the existing tokens or merge specific ones. Regenerate `design.html` from the resulting tokens.
+- **Rewrite a prose section** — Update only that section in the `.md`. Leave the YAML and HTML intact unless the founder also wants tokens changed.
+- **Add a component** — Append a new entry under `components:`, add a paragraph in the Components prose section, and render the new component (with its variants/states) in the Components section of `design.html`.
+
+In the `.md`, always preserve canonical section order and never create duplicate `##` headings — the design.md spec rejects files with duplicates.

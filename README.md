@@ -40,7 +40,7 @@ validation-report.md  prd.md                     tested
 | Skill | What it does | Output |
 |---|---|---|
 | [Product Planner](skills/product-planner/SKILL.md) | A structured vision-intake conversation (8 sections, AI-suggested answers throughout) followed by generation of your three core product documents: strategy & brand, a coding-agent-ready technical spec, and a phased build plan with task checkboxes. Picks up `docs/product-idea.md` automatically if it exists. | `docs/VISION.md`, `docs/product-vision.md`, `docs/prd.md`, `docs/product-roadmap.md` |
-| [Design System](skills/design-system/SKILL.md) | Translates images (screenshots, mockups, Figma URLs) into a design system in [Google's open design.md format](https://github.com/google-labs-code/design.md) — YAML design tokens plus prose rationale any coding agent can implement from. | `docs/design.md` |
+| [Design System](skills/design-system/SKILL.md) | Translates images (screenshots, mockups, Figma URLs) into a design system in [Google's open design.md format](https://github.com/google-labs-code/design.md) — YAML tokens plus prose rationale any coding agent can implement from, alongside a mirrored, self-contained `design.html` style guide that renders every token and component live for humans to read. | `docs/design.md`, `docs/design.html` |
 
 ### Build
 
@@ -77,6 +77,7 @@ All skills read and write a shared `docs/` folder at your project root. Run them
 | `prd.md` | Product Planner | Build MVP, Build Loop |
 | `product-roadmap.md` | Product Planner | Build MVP, Build Loop (progress tracked via checkboxes) |
 | `design.md` | Design System | Product Planner, Build MVP, Build Loop |
+| `design.html` | Design System | you (human-readable mirror of `design.md`) |
 | `launch-checklist.md` | Launch Checklist | you |
 
 ## Installation
