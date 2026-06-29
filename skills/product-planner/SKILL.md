@@ -120,7 +120,7 @@ See [resources/INTAKE-GUIDE.md](./resources/INTAKE-GUIDE.md) for the complete qu
 1. **Your Audience** — Primary user, secondary users, alternatives, frustrations
 1. **Business Intent** — Revenue model, 90-day goal, 6-month vision, constraints, GTM
 1. **Brand Voice** — Brand personality, tone of voice (visual identity is captured separately in `docs/design.md` via the Design System skill)
-1. **Tech Stack** — Frontend, backend, database, auth, payments (platform is already captured in Section 3)
+1. **Tech Stack** — Frontend, backend, database, auth, payments, and supporting services (analytics, email, error tracking — defaults PostHog/Resend/Sentry); platform is already captured in Section 3
 1. **Tooling** — Which coding agent they'll build with
 
 ### Intake Behavior Rules

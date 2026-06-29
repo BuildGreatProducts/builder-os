@@ -4,6 +4,16 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.6.0] - 2026-06-12
+
+### Added
+- **Supporting services in the Product Planner**: analytics, transactional email, and error tracking are now first-class recommendations with sensible defaults — **PostHog** (or Mixpanel) for analytics, **Resend** (or Loops) for email, **Sentry** for error tracking. Previously these were explicitly deferred and unnamed.
+  - New `Supporting Services` category in `TECH-STACK-OPTIONS.md` with full comparison entries (✓/✗/Best for) for each tool
+  - New bundled intake question `Q7.6` in `INTAKE-GUIDE.md` — presents all three categories at once with recommended defaults, accept-all-or-skip
+  - `VISION-TEMPLATE.md` Tech Stack section gains Analytics / Email / Error tracking fields (each may be `None`)
+  - `PRD-GENERATION.md` now lists them in the stack table, cost estimate (with free-tier limits), and Dependencies & Integrations (with required env vars), plus a Sentry PII-scrubbing note in Security Considerations
+  - `ROADMAP-GENERATION.md` polish/launch phase now generates concrete tasks to wire them, with guidance on placing error tracking in foundation and email where first needed
+
 ## [0.5.1] - 2026-06-12
 
 ### Changed

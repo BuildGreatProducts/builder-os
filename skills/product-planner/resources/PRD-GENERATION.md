@@ -82,6 +82,11 @@ Use the exact heading structure specified below.
 |Database|{techStack.database.choice}|{techStack.database.rationale}|
 |Auth    |{techStack.auth.choice}    |{techStack.auth.rationale}    |
 |Payments|{techStack.payments.choice}|{techStack.payments.rationale}|
+|Analytics|{techStack.analytics.choice}|{techStack.analytics.rationale}|
+|Email   |{techStack.email.choice}   |{techStack.email.rationale}   |
+|Error tracking|{techStack.errorTracking.choice}|{techStack.errorTracking.rationale}|
+
+Include the analytics, email, and error-tracking rows whenever the founder chose them in intake (defaults: PostHog, Resend, Sentry). Omit any row set to "None."
 
 **Stack Integration Guide:** How the chosen pieces fit together. Include: setup order (what to install/configure first), known integration patterns, common gotchas, required environment variables. This is the section that saves hours of debugging. Be specific to the exact stack combination.
 
@@ -107,9 +112,9 @@ Adapt this to the actual stack chosen.
 
 **Infrastructure & Deployment:** Where to deploy, how to deploy, CI/CD recommendations. For the chosen stack, recommend the path of least resistance (e.g. Vercel for Next.js, Convex Cloud for Convex). Include environment variables needed.
 
-**Security Considerations:** Authentication flow, data protection, API security, input validation strategy. Specific to the chosen auth provider and backend.
+**Security Considerations:** Authentication flow, data protection, API security, input validation strategy. Specific to the chosen auth provider and backend. If an error-tracking service was chosen (default Sentry), note that it must be configured to scrub PII and secrets from captured events and breadcrumbs — error payloads should never leak tokens, passwords, or personal data.
 
-**Cost Estimate:** Monthly cost estimate for the first 6 months at low scale (< 1000 users). Break down by service. Include free tier limits.
+**Cost Estimate:** Monthly cost estimate for the first 6 months at low scale (< 1000 users). Break down by service — include the supporting services (analytics, email, error tracking) the founder chose, noting each one's free-tier limit (e.g. PostHog 1M events/mo, Resend 3,000 emails/mo, Sentry's free error quota). Include free tier limits.
 
 -----
 
@@ -412,7 +417,7 @@ Cover: network failures, auth expiry mid-session, invalid data, concurrent edits
 }
 ```
 
-**Third-Party Services:** Any external APIs or services, with: what it’s used for, pricing tier, API key requirements, rate limits.
+**Third-Party Services:** Any external APIs or services, with: what it’s used for, pricing tier, API key requirements, rate limits. This includes the supporting services chosen in intake — analytics (default PostHog), transactional email (default Resend), and error tracking (default Sentry) — each with its required environment variables (e.g. `POSTHOG_KEY`, `RESEND_API_KEY`, `SENTRY_DSN`) and the events/emails it handles. Skip any the founder set to "None."
 
 -----
 

@@ -170,7 +170,9 @@ When splitting core MVP work across multiple phases, follow this task pattern pe
 1. Basic error handling and loading states
 
 **Polish & launch phase (always present):**
-A phase dedicated to quality, not new features. Covers: comprehensive error handling, empty states, loading states, form validation, landing/marketing page, SEO basics, analytics integration, responsive design, accessibility pass, performance check. For simple products this can be the final phase. For complex products it comes before any post-launch phase.
+A phase dedicated to quality, not new features. Covers: comprehensive error handling, empty states, loading states, form validation, landing/marketing page, SEO basics, responsive design, accessibility pass, performance check, and wiring the supporting services the founder chose — analytics (default PostHog: install the SDK and instrument the key funnel events, including the magic moment), error tracking (default Sentry: initialize on client and server, confirm a test error reports), and any transactional email not already wired in an earlier phase. For simple products this can be the final phase. For complex products it comes before any post-launch phase.
+
+Place supporting services by when they're needed, not all in polish: error tracking can be initialized in the foundation phase so crashes are caught from day one; transactional email (default Resend) belongs in whatever phase first needs it — usually the auth phase for magic links and password resets, or the payments phase for receipts; analytics instrumentation fits the polish phase once the flows exist. Only include tasks for services the founder actually chose — skip any set to "None" in `docs/VISION.md`.
 
 **Post-launch phase (optional):**
 Only include this for products with P2 features or planned iteration. Covers: nice-to-have features, performance optimization, scale considerations, placeholder tasks for user feedback. Mark this phase as evolving — priorities will shift based on real usage. Skip entirely for simple utility apps or MVPs where the scope is fully covered in earlier phases.

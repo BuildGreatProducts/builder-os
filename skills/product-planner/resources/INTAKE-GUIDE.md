@@ -268,6 +268,21 @@ That file is a baseline, not a boundary. Research beyond it (web search) when th
   - **For desktop apps:** Use the web payment options — Polar, Stripe, or Lemon Squeezy. Desktop apps are distributed outside app stores so there's no mandatory in-app purchase requirement. If the app doesn't need payments, recommend **None**.
   - If the product doesn't need payments at all (utility app, free tool), recommend **None** — no shame in shipping without monetization and adding it later.
 
+### Q7.6: Supporting services
+
+- **Format:** Bundled question — present all three categories at once with recommended defaults, not three separate comparison tables. Keep it light; the founder can accept all defaults in one breath or adjust any line.
+- **Ask:** “Three extras most products want by launch — pick or skip each. I recommend the defaults:”
+  - **Analytics** (see what users actually do) — **PostHog** (recommended) / Mixpanel / None
+  - **Email** (password resets, magic links, receipts, notifications) — **Resend** (recommended) / Loops / None
+  - **Error tracking** (catch crashes before users report them) — **Sentry** (recommended) / None
+- **Then say:** “Want all three defaults — PostHog, Resend, Sentry — or change any?”
+- **Recommendation logic:**
+  - **Analytics:** Recommend **PostHog** for most products (free tier plus session replay and feature flags in one tool). Suggest **Mixpanel** if the founder wants dedicated funnel/retention analytics and nothing else. See [TECH-STACK-OPTIONS.md](TECH-STACK-OPTIONS.md) § Supporting Services.
+  - **Email:** Recommend **Resend** for transactional email, especially on a TypeScript/Next.js stack. Suggest **Loops** if they want transactional plus lifecycle/marketing email from one tool. **Skip if** the product genuinely sends no email (no accounts, no notifications) — but note auth providers usually need it for magic links and resets.
+  - **Error tracking:** Recommend **Sentry** for any product shipping to real users. Only **None** for throwaway prototypes.
+  - For very early prototypes or pure local-only utilities, it's fine to take **None** across the board — say so plainly and move on.
+- **Carry forward:** Record each choice (with a one-line rationale) for the Tech Stack section of `docs/VISION.md`. These flow into the PRD's Dependencies & Integrations and the roadmap's polish/launch phase.
+
 -----
 
 ## Section 8: Tooling

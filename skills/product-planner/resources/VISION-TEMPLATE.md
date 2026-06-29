@@ -76,6 +76,9 @@ Use this exact structure. Every field is a bold label followed by the answer. Mu
 - **Database:** {choice} — {rationale}
 - **Auth:** {choice} — {rationale}
 - **Payments:** {choice} — {rationale}
+- **Analytics:** {choice} — {rationale}
+- **Email:** {choice} — {rationale}
+- **Error tracking:** {choice} — {rationale}
 
 ## Tooling
 
@@ -89,6 +92,7 @@ Use this exact structure. Every field is a bold label followed by the answer. Mu
 - **Enum fields** (Platform, Revenue model, App type) must use one of the listed values exactly.
 - **Payments** may be `None — {rationale}` if the revenue model is "free" or monetization comes later.
 - **Database** and **Auth** may be `None — {rationale}` for apps that don't need them (e.g. "App uses on-device storage only").
+- **Analytics**, **Email**, and **Error tracking** are the supporting services from intake Q7.6. Defaults are PostHog, Resend, and Sentry; each may be `None — {rationale}` if the founder skipped it.
 - **Created/Updated** are ISO 8601 dates. Set both on first write; bump **Updated** on every edit.
 - **Section order and headings are fixed** — downstream generation navigates by heading. Don't rename, reorder, or remove sections.
 
@@ -175,6 +179,9 @@ Report every violation found, fix them in the file (asking the founder where the
 - **Database:** Convex Database — included with the backend, reactive queries, ACID transactions
 - **Auth:** Clerk — pre-built UI components, organization/team management, generous free tier
 - **Payments:** Polar — built for SaaS subscriptions, merchant of record, developer-friendly API
+- **Analytics:** PostHog — free tier covers early volume, session replay and feature flags bundled in
+- **Email:** Resend — transactional email for magic links and notifications, clean fit with the Next.js stack
+- **Error tracking:** Sentry — catch crashes in production before users report them
 
 ## Tooling
 

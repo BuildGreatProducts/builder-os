@@ -462,6 +462,72 @@ For mobile apps distributed through the App Store or Google Play, in-app purchas
 
 -----
 
+## Supporting Services
+
+Three services most products want by launch, even though they aren't part of the core build: product analytics (so you can see what users do), transactional email (password resets, magic links, receipts, notifications), and error tracking (so you find crashes before users report them). Recommend the defaults below unless the product clearly needs something else, and let the founder skip any they don't want yet — each can be added later.
+
+### Analytics
+
+**PostHog** — Open-source product analytics suite with events, funnels, session replay, feature flags, and A/B testing.
+
+- ✓ All-in-one: analytics, session replay, feature flags, and experiments in one tool
+- ✓ Generous free tier (1M events/month); open-source and self-hostable
+- ✓ Autocapture plus custom events — start getting data with minimal instrumentation
+- ✓ First-class SDKs for web, React Native, and most backends
+- ✗ Broad surface area can feel heavy if you only want basic metrics
+- ✗ Self-hosting is real ops work — most teams use the cloud
+- **Best for:** Most products. Default recommendation — the free tier and feature-flag/replay bundle are hard to beat for a solo founder.
+
+**Mixpanel** — Mature, focused product analytics built around events, funnels, and retention.
+
+- ✓ Best-in-class funnel, cohort, and retention analysis
+- ✓ Polished, fast dashboards non-technical teammates can use
+- ✓ Generous free tier (up to ~1M monthly events)
+- ✗ Analytics only — no session replay, flags, or experiments (separate tools needed)
+- ✗ Event taxonomy needs deliberate planning to stay clean
+- **Best for:** Teams that want deep, dedicated funnel/retention analytics and don't need PostHog's wider toolkit.
+
+### Email
+
+**Resend** — Developer-first transactional email API from the team behind React Email.
+
+- ✓ Clean, modern API — sending email takes minutes
+- ✓ React Email for type-safe, component-based templates
+- ✓ Generous free tier (3,000 emails/month); simple domain + DNS setup
+- ✓ Great fit with Next.js / TypeScript stacks
+- ✗ Younger than SendGrid/Postmark — smaller track record at huge scale
+- ✗ Transactional-focused — not a marketing automation platform
+- **Best for:** Most products' transactional email (auth, receipts, notifications). Default recommendation, especially on a TypeScript stack.
+
+**Loops** — Email platform combining transactional sending with lightweight marketing automation.
+
+- ✓ Transactional email plus drip campaigns, onboarding sequences, and broadcasts in one place
+- ✓ Visual editor and automation loops aimed at SaaS lifecycle email
+- ✓ Simple API and good defaults for founders who want marketing + transactional together
+- ✗ Less of a pure-developer primitive than Resend
+- ✗ Younger platform; marketing features are simpler than dedicated tools like Customer.io
+- **Best for:** Founders who want both transactional and lifecycle/marketing email from one tool without wiring up two services.
+
+### Error Tracking
+
+**Sentry** — The standard for application error and performance monitoring.
+
+- ✓ Captures exceptions with stack traces, breadcrumbs, and release/context tagging
+- ✓ SDKs for every major frontend, backend, and mobile framework
+- ✓ Performance monitoring and session tracking alongside errors
+- ✓ Free tier covers a solo founder's early volume
+- ✗ Quota management needs attention as traffic grows
+- ✗ Full feature set is more than a tiny app strictly needs (but the defaults are sensible)
+- **Best for:** Every product that ships to real users. Default recommendation — find crashes before your users tell you about them.
+
+**None (add later)** — Skip a supporting service for the MVP.
+
+- ✓ Fewer integrations and accounts to set up before launch
+- ✗ Flying blind: no usage data, no error alerts, or manual email wiring later
+- **Best for:** The earliest throwaway prototypes. For anything real, analytics and error tracking are cheap insurance — recommend at least PostHog and Sentry.
+
+-----
+
 ## Researching Beyond This List
 
 When a category here doesn't fit the product — or the founder asks for alternatives — run a fresh comparison:
@@ -471,4 +537,4 @@ When a category here doesn't fit the product — or the founder asks for alterna
 3. **Present them in the standard comparison format** (one-line description, ✓ pros, ✗ cons, "Best for") alongside any relevant defaults from this list, and mark a clear recommendation.
 4. **Note verification dates for volatile facts** — pricing, free tiers, and acquisition status change; say "as of [date]" when quoting them.
 
-Categories intentionally not covered here (research when relevant): hosting/deployment platforms, email providers, analytics, error tracking, AI/LLM APIs, vector databases, search services, CMS, and file storage. The PRD generation step picks sensible defaults for these based on the chosen core stack.
+Categories intentionally not covered here (research when relevant): hosting/deployment platforms, AI/LLM APIs, vector databases, search services, CMS, and file storage. The PRD generation step picks sensible defaults for these based on the chosen core stack. (Analytics, email, and error tracking now have first-class recommendations under Supporting Services above.)
