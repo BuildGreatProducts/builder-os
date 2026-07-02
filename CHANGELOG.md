@@ -4,6 +4,14 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.8.0] - 2026-06-30
+
+### Added
+- **Design Better** (`skills/design-better`): a craft layer for any coding agent generating or reviewing UI — 50 numbered UX/UI heuristics spanning hierarchy, layout, typography, color & contrast, interaction, forms, the four data states (empty/loading/error/success), motion, accessibility (WCAG 2.2 AA), mobile & touch, cognitive load, and 2025–2026 AI-product patterns, plus a pre-flight checklist before delivery. `docs/design.md` owns **style** (tokens); this skill owns **craft**. Visual decisions reference design tokens by name; tokens the design system lacks are flagged as New Patterns rather than invented inline. Pairs with any Build Loop's review step
+
+### Changed
+- Design Better refactored from ProductOS's `studio-build-design-better`: renamed to `design-better`, document paths rewired from ProductOS conventions (`docs/DESIGN.md`, `docs/PRODUCT.md`, `design/1. Product Identity.md`) to BuilderOS ones (`docs/design.md`, `docs/product-vision.md`), the hard "stop if `DESIGN.md` is missing" dependency softened into a codebase-convention fallback so the skill is fully standalone, and skill references repointed from `studio-design-design-system`/`studio-build-design-review` to the **Design System** skill and the **Build Loop** review step. Added BuilderOS license/author/version frontmatter
+
 ## [0.7.0] - 2026-06-12
 
 ### Added
