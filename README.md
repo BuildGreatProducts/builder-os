@@ -16,7 +16,7 @@ Each skill is a `SKILL.md` file that teaches an AI coding agent a workflow. Inst
 Ideate                Plan & Design              Build                  Launch
 ─────────             ─────────────              ─────────              ─────────
 Idea Generator   →    Product Planner       →    Build Loop        →    Launch Checklist
-Idea Validator        Design System
+Idea Validator        Design System              Design Better
    │                     │                          │                      │
    ▼                     ▼                          ▼                      ▼
 docs/                 docs/                      working,               docs/
