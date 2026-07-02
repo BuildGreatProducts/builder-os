@@ -58,6 +58,14 @@ For tighter, review-gated increments, use a **Build Loop** instead: nothing ship
 
 **Trigger with:** "run the build loop", "build the next task", "continue the plan", or "build this feature properly".
 
+Whichever build path you take, pair it with the craft layer:
+
+| Skill | What it does | Pairs with |
+|---|---|---|
+| [Design Better](skills/design-better/SKILL.md) | A craft layer for generating or reviewing UI that's *designed*, not just functional — 50 numbered UX/UI heuristics across hierarchy, layout, typography, color & contrast, interaction, forms, the four data states, motion, accessibility (WCAG 2.2 AA), mobile/touch, cognitive load, and AI-product patterns, plus a pre-flight checklist. `docs/design.md` owns **style** (tokens); this skill owns **craft**. References design tokens by name and flags missing ones as New Patterns instead of inventing values. Standalone — falls back to the codebase's existing conventions when no `docs/design.md` exists. | `docs/design.md`, any Build Loop |
+
+**Trigger with:** "design better", "make this UI feel more designed", "apply design polish", or "review this for craft".
+
 ### Launch
 
 | Skill | What it does | Output |
@@ -73,10 +81,10 @@ All skills read and write a shared `docs/` folder at your project root. Run them
 | `product-idea.md` | Idea Generator | Idea Validator, Product Planner |
 | `validation-report.md` | Idea Validator | you |
 | `VISION.md` | Product Planner (intake) | Product Planner (generation), Design System |
-| `product-vision.md` | Product Planner | Design System, Build MVP, Build Loop |
+| `product-vision.md` | Product Planner | Design System, Build MVP, Build Loop, Design Better |
 | `prd.md` | Product Planner | Build MVP, Build Loop |
 | `product-roadmap.md` | Product Planner | Build MVP, Build Loop (progress tracked via checkboxes) |
-| `design.md` | Design System | Product Planner, Build MVP, Build Loop |
+| `design.md` | Design System | Product Planner, Build MVP, Build Loop, Design Better |
 | `design.html` | Design System | you (human-readable mirror of `design.md`) |
 | `launch-checklist.md` | Launch Checklist | you |
 
@@ -103,6 +111,7 @@ npx skills add BuildGreatProducts/builder-os/skills/build-mvp
 npx skills add BuildGreatProducts/builder-os/skills/build-loop-claude-code
 npx skills add BuildGreatProducts/builder-os/skills/build-loop-codex
 npx skills add BuildGreatProducts/builder-os/skills/build-loop-cursor
+npx skills add BuildGreatProducts/builder-os/skills/design-better
 npx skills add BuildGreatProducts/builder-os/skills/launch-checklist
 ```
 
@@ -127,6 +136,7 @@ Clone this repo and copy the skill folders you want into your project's skills d
    - Idea validated? → "plan my product"
    - Have a reference design? → "create a design system from this image"
    - Docs ready? → "build my MVP" (whole roadmap) or "run the build loop" (task by task)
+   - Building UI? → "design better" / "make this feel more designed"
    - Product built? → "create my launch checklist"
 
 ## Changelog
