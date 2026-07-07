@@ -4,6 +4,14 @@ All notable changes to BuilderOS are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.9.0] - 2026-07-07
+
+### Added
+- **Laws of UX in Design Better**: the skill gains a dedicated `The Laws of UX` catalogue — all 30 laws from [lawsofux.com](https://lawsofux.com/) grouped into five themes (perception & grouping, choice & cognitive load, memory & attention, expectation & behavior, performance & responsiveness), each with a one-line principle, a concrete code/product application, and a `↔ H#` cross-reference to the heuristic that already operationalizes it. Workflow step 3 now applies the laws where relevant and lets reviews cite them by name; the intro credits lawsofux.com. Skill bumped to v1.1
+
+### Fixed
+- **Design Better frontmatter now parses**: an unquoted colon-space in the `description` ("when it exists: the design system…") made YAML read it as a nested mapping and fail with "mapping values are not allowed in this context"; replaced with an em dash
+
 ## [0.8.0] - 2026-06-30
 
 ### Added
